@@ -1,0 +1,571 @@
+:: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /tmp/.ivy/cache
+The jars for the packages stored in: /tmp/.ivy/jars
+org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+org.postgresql#postgresql added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-e98f5b99-999e-4694-a33c-5ec328c7d831;1.0
+	confs: [default]
+	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0 in central
+	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0 in central
+	found org.apache.kafka#kafka-clients;3.4.1 in central
+	found org.lz4#lz4-java;1.8.0 in central
+	found org.xerial.snappy#snappy-java;1.1.10.3 in central
+	found org.slf4j#slf4j-api;2.0.7 in central
+	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+	found commons-logging#commons-logging;1.1.3 in central
+	found com.google.code.findbugs#jsr305;3.0.0 in central
+	found org.apache.commons#commons-pool2;2.11.1 in central
+	found org.postgresql#postgresql;42.6.0 in central
+	found org.checkerframework#checker-qual;3.31.0 in central
+downloading https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.0/spark-sql-kafka-0-10_2.12-3.5.0.jar ...
+	[SUCCESSFUL ] org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0!spark-sql-kafka-0-10_2.12.jar (110ms)
+downloading https://repo1.maven.org/maven2/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar ...
+	[SUCCESSFUL ] org.postgresql#postgresql;42.6.0!postgresql.jar (88ms)
+downloading https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.0/spark-token-provider-kafka-0-10_2.12-3.5.0.jar ...
+	[SUCCESSFUL ] org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0!spark-token-provider-kafka-0-10_2.12.jar (71ms)
+downloading https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.jar ...
+	[SUCCESSFUL ] org.apache.kafka#kafka-clients;3.4.1!kafka-clients.jar (201ms)
+downloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar ...
+	[SUCCESSFUL ] com.google.code.findbugs#jsr305;3.0.0!jsr305.jar (69ms)
+downloading https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar ...
+	[SUCCESSFUL ] org.apache.commons#commons-pool2;2.11.1!commons-pool2.jar (57ms)
+downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-runtime/3.3.4/hadoop-client-runtime-3.3.4.jar ...
+	[SUCCESSFUL ] org.apache.hadoop#hadoop-client-runtime;3.3.4!hadoop-client-runtime.jar (435ms)
+downloading https://repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar ...
+	[SUCCESSFUL ] org.lz4#lz4-java;1.8.0!lz4-java.jar (62ms)
+downloading https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.1.10.3/snappy-java-1.1.10.3.jar ...
+	[SUCCESSFUL ] org.xerial.snappy#snappy-java;1.1.10.3!snappy-java.jar(bundle) (76ms)
+downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar ...
+	[SUCCESSFUL ] org.slf4j#slf4j-api;2.0.7!slf4j-api.jar (58ms)
+downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-api/3.3.4/hadoop-client-api-3.3.4.jar ...
+	[SUCCESSFUL ] org.apache.hadoop#hadoop-client-api;3.3.4!hadoop-client-api.jar (229ms)
+downloading https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar ...
+	[SUCCESSFUL ] commons-logging#commons-logging;1.1.3!commons-logging.jar (53ms)
+downloading https://repo1.maven.org/maven2/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar ...
+	[SUCCESSFUL ] org.checkerframework#checker-qual;3.31.0!checker-qual.jar (49ms)
+:: resolution report :: resolve 8940ms :: artifacts dl 1575ms
+	:: modules in use:
+	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+	commons-logging#commons-logging;1.1.3 from central in [default]
+	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+	org.apache.kafka#kafka-clients;3.4.1 from central in [default]
+	org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0 from central in [default]
+	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0 from central in [default]
+	org.checkerframework#checker-qual;3.31.0 from central in [default]
+	org.lz4#lz4-java;1.8.0 from central in [default]
+	org.postgresql#postgresql;42.6.0 from central in [default]
+	org.slf4j#slf4j-api;2.0.7 from central in [default]
+	org.xerial.snappy#snappy-java;1.1.10.3 from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   13  |   13  |   13  |   0   ||   13  |   13  |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-e98f5b99-999e-4694-a33c-5ec328c7d831
+	confs: [default]
+	13 artifacts copied, 0 already retrieved (58042kB/85ms)
+25/12/03 07:29:46 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+25/12/03 07:29:47 INFO SparkContext: Running Spark version 3.5.0
+25/12/03 07:29:47 INFO SparkContext: OS info Linux, 6.14.0-1015-aws, amd64
+25/12/03 07:29:47 INFO SparkContext: Java version 11.0.20.1
+25/12/03 07:29:47 INFO ResourceUtils: ==============================================================
+25/12/03 07:29:47 INFO ResourceUtils: No custom resources configured for spark.driver.
+25/12/03 07:29:47 INFO ResourceUtils: ==============================================================
+25/12/03 07:29:47 INFO SparkContext: Submitted application: ClickstreamAnalytics
+25/12/03 07:29:47 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+25/12/03 07:29:47 INFO ResourceProfile: Limiting resource is cpu
+25/12/03 07:29:47 INFO ResourceProfileManager: Added ResourceProfile id: 0
+25/12/03 07:29:47 INFO SecurityManager: Changing view acls to: spark
+25/12/03 07:29:47 INFO SecurityManager: Changing modify acls to: spark
+25/12/03 07:29:47 INFO SecurityManager: Changing view acls groups to: 
+25/12/03 07:29:47 INFO SecurityManager: Changing modify acls groups to: 
+25/12/03 07:29:47 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+25/12/03 07:29:48 INFO Utils: Successfully started service 'sparkDriver' on port 35475.
+25/12/03 07:29:48 INFO SparkEnv: Registering MapOutputTracker
+25/12/03 07:29:48 INFO SparkEnv: Registering BlockManagerMaster
+25/12/03 07:29:48 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+25/12/03 07:29:48 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+25/12/03 07:29:48 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+25/12/03 07:29:48 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-b826942d-86e0-4c44-ba74-63074b1f5911
+25/12/03 07:29:48 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+25/12/03 07:29:48 INFO SparkEnv: Registering OutputCommitCoordinator
+25/12/03 07:29:48 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+25/12/03 07:29:48 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar at spark://34383dc5fe0c:35475/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.postgresql_postgresql-42.6.0.jar at spark://34383dc5fe0c:35475/jars/org.postgresql_postgresql-42.6.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar at spark://34383dc5fe0c:35475/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.apache.kafka_kafka-clients-3.4.1.jar at spark://34383dc5fe0c:35475/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://34383dc5fe0c:35475/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://34383dc5fe0c:35475/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at spark://34383dc5fe0c:35475/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.lz4_lz4-java-1.8.0.jar at spark://34383dc5fe0c:35475/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at spark://34383dc5fe0c:35475/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.slf4j_slf4j-api-2.0.7.jar at spark://34383dc5fe0c:35475/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at spark://34383dc5fe0c:35475/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/commons-logging_commons-logging-1.1.3.jar at spark://34383dc5fe0c:35475/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added JAR file:///tmp/.ivy/jars/org.checkerframework_checker-qual-3.31.0.jar at spark://34383dc5fe0c:35475/jars/org.checkerframework_checker-qual-3.31.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar at spark://34383dc5fe0c:35475/files/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.postgresql_postgresql-42.6.0.jar at spark://34383dc5fe0c:35475/files/org.postgresql_postgresql-42.6.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.postgresql_postgresql-42.6.0.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.postgresql_postgresql-42.6.0.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar at spark://34383dc5fe0c:35475/files/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.apache.kafka_kafka-clients-3.4.1.jar at spark://34383dc5fe0c:35475/files/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.apache.kafka_kafka-clients-3.4.1.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.apache.kafka_kafka-clients-3.4.1.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://34383dc5fe0c:35475/files/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/com.google.code.findbugs_jsr305-3.0.0.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://34383dc5fe0c:35475/files/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.apache.commons_commons-pool2-2.11.1.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at spark://34383dc5fe0c:35475/files/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.lz4_lz4-java-1.8.0.jar at spark://34383dc5fe0c:35475/files/org.lz4_lz4-java-1.8.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.lz4_lz4-java-1.8.0.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at spark://34383dc5fe0c:35475/files/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.xerial.snappy_snappy-java-1.1.10.3.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.slf4j_slf4j-api-2.0.7.jar at spark://34383dc5fe0c:35475/files/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.slf4j_slf4j-api-2.0.7.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.slf4j_slf4j-api-2.0.7.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at spark://34383dc5fe0c:35475/files/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/commons-logging_commons-logging-1.1.3.jar at spark://34383dc5fe0c:35475/files/commons-logging_commons-logging-1.1.3.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/commons-logging_commons-logging-1.1.3.jar
+25/12/03 07:29:48 INFO SparkContext: Added file file:///tmp/.ivy/jars/org.checkerframework_checker-qual-3.31.0.jar at spark://34383dc5fe0c:35475/files/org.checkerframework_checker-qual-3.31.0.jar with timestamp 1764746987583
+25/12/03 07:29:48 INFO Utils: Copying /tmp/.ivy/jars/org.checkerframework_checker-qual-3.31.0.jar to /tmp/spark-4bd96207-0679-4ba5-9b69-1980741231bf/userFiles-e831f730-a13a-481c-9965-87cedc475fb5/org.checkerframework_checker-qual-3.31.0.jar
+25/12/03 07:29:48 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+25/12/03 07:29:49 INFO TransportClientFactory: Successfully created connection to spark-master/172.21.0.2:7077 after 40 ms (0 ms spent in bootstraps)
+25/12/03 07:29:49 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20251203072949-0000
+25/12/03 07:29:49 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38577.
+25/12/03 07:29:49 INFO NettyBlockTransferService: Server created on 34383dc5fe0c:38577
+25/12/03 07:29:49 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+25/12/03 07:29:49 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 34383dc5fe0c, 38577, None)
+25/12/03 07:29:49 INFO BlockManagerMasterEndpoint: Registering block manager 34383dc5fe0c:38577 with 434.4 MiB RAM, BlockManagerId(driver, 34383dc5fe0c, 38577, None)
+25/12/03 07:29:49 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 34383dc5fe0c, 38577, None)
+25/12/03 07:29:49 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 34383dc5fe0c, 38577, None)
+25/12/03 07:29:49 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20251203072949-0000/0 on worker-20251203072622-172.21.0.5-41231 (172.21.0.5:41231) with 1 core(s)
+25/12/03 07:29:49 INFO StandaloneSchedulerBackend: Granted executor ID app-20251203072949-0000/0 on hostPort 172.21.0.5:41231 with 1 core(s), 1024.0 MiB RAM
+25/12/03 07:29:50 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20251203072949-0000/0 is now RUNNING
+25/12/03 07:29:50 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+25/12/03 07:29:57 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /tmp/temporary-b285ffd6-df29-4991-8c5a-84b3bf0d1395. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+25/12/03 07:29:57 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+25/12/03 07:29:59 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+25/12/03 07:30:00 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:00 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:00 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:00 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:01 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:02 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:03 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:04 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:05 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:06 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:07 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:08 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:09 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:10 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:11 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:12 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:13 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:14 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:15 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:16 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:18 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:19 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:20 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:21 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:22 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:23 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:23 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:25 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:26 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:26 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:28 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:29 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:30 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:31 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:32 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:33 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:34 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:35 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:36 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:37 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:38 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:39 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:40 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:41 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:42 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:44 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:45 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:46 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:47 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:48 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:50 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:50 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:52 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:53 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:54 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:55 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:56 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:57 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:58 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:30:59 WARN KafkaOffsetReaderAdmin: Error in attempt 1 getting Kafka offsets: 
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeTopics
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:165)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.retrieveAllPartitions(ConsumerStrategy.scala:66)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.retrieveAllPartitions$(ConsumerStrategy.scala:65)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.retrieveAllPartitions(ConsumerStrategy.scala:102)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.assignedTopicPartitions(ConsumerStrategy.scala:113)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$getOrCreateInitialPartitionOffsets$1(KafkaMicroBatchStream.scala:246)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.getOrCreateInitialPartitionOffsets(KafkaMicroBatchStream.scala:241)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.initialOffset(KafkaMicroBatchStream.scala:98)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$getStartOffset$2(MicroBatchExecution.scala:457)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.getStartOffset(MicroBatchExecution.scala:457)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeTopics
+25/12/03 07:30:59 WARN NetworkClient: [AdminClient clientId=adminclient-1] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:00 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+25/12/03 07:31:00 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:00 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:00 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:00 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:01 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:01 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:02 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:03 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:04 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:05 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:07 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:08 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:09 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:10 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:11 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:12 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:13 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:14 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:15 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:16 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:18 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:19 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:20 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:21 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:22 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:23 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:24 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:25 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:26 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:27 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:28 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:29 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:30 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:31 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:32 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:33 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:34 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:35 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:36 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:37 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:38 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:39 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:40 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:42 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:43 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:44 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:45 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:46 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:47 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:48 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:49 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:50 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:51 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:52 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:53 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:54 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:55 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:56 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:57 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:58 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:31:59 WARN NetworkClient: [AdminClient clientId=adminclient-2] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:00 WARN KafkaOffsetReaderAdmin: Error in attempt 2 getting Kafka offsets: 
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeTopics
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:165)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.retrieveAllPartitions(ConsumerStrategy.scala:66)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.retrieveAllPartitions$(ConsumerStrategy.scala:65)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.retrieveAllPartitions(ConsumerStrategy.scala:102)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.assignedTopicPartitions(ConsumerStrategy.scala:113)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$getOrCreateInitialPartitionOffsets$1(KafkaMicroBatchStream.scala:246)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.getOrCreateInitialPartitionOffsets(KafkaMicroBatchStream.scala:241)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.initialOffset(KafkaMicroBatchStream.scala:98)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$getStartOffset$2(MicroBatchExecution.scala:457)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.getStartOffset(MicroBatchExecution.scala:457)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeTopics
+25/12/03 07:32:01 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+25/12/03 07:32:01 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:01 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:01 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:01 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:02 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:03 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:04 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:05 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:06 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:07 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:08 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:09 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:10 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:11 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:12 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:13 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:14 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:16 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:17 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:18 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:19 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:20 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:21 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:22 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:23 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:24 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:25 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:26 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:27 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:28 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:29 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:30 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:31 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:32 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:33 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:34 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:35 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:36 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:37 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:39 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:39 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:41 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:42 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:43 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:44 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:45 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:46 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:47 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:48 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:49 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:50 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:51 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:52 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:53 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:54 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:55 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:56 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:57 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:58 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:32:59 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:33:00 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:33:01 WARN KafkaOffsetReaderAdmin: Error in attempt 3 getting Kafka offsets: 
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeTopics
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:165)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.retrieveAllPartitions(ConsumerStrategy.scala:66)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.retrieveAllPartitions$(ConsumerStrategy.scala:65)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.retrieveAllPartitions(ConsumerStrategy.scala:102)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.assignedTopicPartitions(ConsumerStrategy.scala:113)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$getOrCreateInitialPartitionOffsets$1(KafkaMicroBatchStream.scala:246)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.getOrCreateInitialPartitionOffsets(KafkaMicroBatchStream.scala:241)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.initialOffset(KafkaMicroBatchStream.scala:98)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$getStartOffset$2(MicroBatchExecution.scala:457)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.getStartOffset(MicroBatchExecution.scala:457)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeTopics
+25/12/03 07:33:01 WARN NetworkClient: [AdminClient clientId=adminclient-3] Connection to node 1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+25/12/03 07:33:02 ERROR MicroBatchExecution: Query [id = c2b53a8b-e49b-49ae-9483-45f3f8fc4335, runId = 184580e7-6b6e-4e91-9cb2-8dbb4dd7841d] terminated with error
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeTopics
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:165)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.retrieveAllPartitions(ConsumerStrategy.scala:66)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.retrieveAllPartitions$(ConsumerStrategy.scala:65)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.retrieveAllPartitions(ConsumerStrategy.scala:102)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.assignedTopicPartitions(ConsumerStrategy.scala:113)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.$anonfun$partitionsAssignedToAdmin$1(KafkaOffsetReaderAdmin.scala:499)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.withRetries(KafkaOffsetReaderAdmin.scala:518)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.partitionsAssignedToAdmin(KafkaOffsetReaderAdmin.scala:498)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchLatestOffsets(KafkaOffsetReaderAdmin.scala:297)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.$anonfun$getOrCreateInitialPartitionOffsets$1(KafkaMicroBatchStream.scala:246)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.getOrCreateInitialPartitionOffsets(KafkaMicroBatchStream.scala:241)
+	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.initialOffset(KafkaMicroBatchStream.scala:98)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$getStartOffset$2(MicroBatchExecution.scala:457)
+	at scala.Option.getOrElse(Option.scala:189)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.getStartOffset(MicroBatchExecution.scala:457)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:491)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:490)
+	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:479)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:810)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:475)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:268)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:427)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:425)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:249)
+	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:239)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:311)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:289)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.$anonfun$run$1(StreamExecution.scala:211)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:211)
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeTopics
+Traceback (most recent call last):
+  File "/opt/spark/work-dir/stream_processor.py", line 109, in <module>
+    .agg(
+  File "/opt/spark/work-dir/stream_processor.py", line 106, in main
+    window(col("timestamp"), "10 minutes", "5 minutes"),
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/streaming/query.py", line 221, in awaitTermination
+  File "/opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 185, in deco
+pyspark.errors.exceptions.captured.StreamingQueryException: [STREAM_FAILED] Query [id = c2b53a8b-e49b-49ae-9483-45f3f8fc4335, runId = 184580e7-6b6e-4e91-9cb2-8dbb4dd7841d] terminated with exception: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeTopics
