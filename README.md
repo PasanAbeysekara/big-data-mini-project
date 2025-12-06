@@ -51,62 +51,113 @@ The pipeline consists of the following components:
 
 ### 🏃‍♂️ Running the Pipeline
 
-The system is designed to run automatically upon startup. Here is how to verify each stage:
-
 #### 1. Verify Data Ingestion
 The producer starts automatically. Check its logs to see data being generated:
 ```bash
-docker logs big-data-mini-project_producer_1
+docker logs big-data-mini-project-producer-1 --tail 10
 ```
 *You should see logs like `Sent: {'user_id': '...', 'event_type': 'view', ...}`.*
 
-#### 2. Verify Stream Processing
-The Spark job is submitted automatically by the `spark-master` container (via manual submission in this demo setup, or you can submit it manually if needed).
+#### 2. Submit and Verify Spark Stream Processing
 
-To check if the Spark job is running and processing data:
+**Create the Ivy cache directory** (required for downloading Maven dependencies):
 ```bash
-docker exec big-data-mini-project_spark-master_1 ps aux | grep spark-submit
+docker exec -u root big-data-mini-project-spark-master-1 bash -c "mkdir -p /home/spark/.ivy2/cache && chown -R spark:spark /home/spark/.ivy2"
 ```
 
-To view the job logs (if running in detached mode):
+**Submit the Spark streaming job**:
 ```bash
-docker exec big-data-mini-project_spark-master_1 cat /opt/spark/work-dir/spark_job.log
+docker exec big-data-mini-project-spark-master-1 bash -c "nohup /opt/spark/bin/spark-submit \
+  --master spark://spark-master:7077 \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,org.postgresql:postgresql:42.6.0 \
+  /opt/spark/work-dir/stream_processor.py > /opt/spark/work-dir/spark_job.log 2>&1 &"
 ```
 
-**Verify Data in Postgres**:
-Check if raw logs are landing in the database:
+**Verify the Spark job is running**:
 ```bash
-docker exec big-data-mini-project_postgres_1 psql -U airflow -d airflow -c "SELECT count(*) FROM activity_logs;"
+docker exec big-data-mini-project-spark-master-1 ps aux | grep spark-submit
 ```
 
-#### 3. Trigger Orchestration (Airflow)
-The Airflow Webserver is available at `http://localhost:8081`.
+**View the Spark job logs**:
+```bash
+docker exec big-data-mini-project-spark-master-1 tail -30 /opt/spark/work-dir/spark_job.log
+```
+
+**Verify data is being written to PostgreSQL**:
+```bash
+docker exec big-data-mini-project-postgres-1 psql -U airflow -d airflow -c "SELECT count(*) FROM activity_logs;"
+
+docker exec big-data-mini-project-postgres-1 psql -U airflow -d airflow -c "SELECT * FROM activity_logs LIMIT 5;"
+```
+
+#### 3. Configure Airflow PostgreSQL Connection
+
+Before triggering the DAG, configure the PostgreSQL connection:
+```bash
+docker exec big-data-mini-project-airflow-scheduler-1 airflow connections add postgres_default \
+  --conn-type postgres \
+  --conn-host postgres \
+  --conn-schema airflow \
+  --conn-login airflow \
+  --conn-password airflow \
+  --conn-port 5432
+```
+
+**Verify the connection**:
+```bash
+docker exec big-data-mini-project-airflow-scheduler-1 airflow connections get postgres_default
+```
+
+#### 4. Trigger Airflow DAG
+
+**Access the Airflow Webserver** at `http://localhost:8081`:
 -   **Username**: `admin`
 -   **Password**: `admin`
 
-You can trigger the DAG from the UI or via the CLI:
+**Trigger the DAG from the UI** by clicking the "Trigger DAG" button on the `daily_user_segmentation` DAG.
+
+**Or trigger via CLI**:
 ```bash
-docker exec big-data-mini-project_airflow-scheduler_1 airflow dags test daily_user_segmentation 2025-12-03
+docker exec big-data-mini-project-airflow-scheduler-1 airflow dags trigger daily_user_segmentation
 ```
 
-#### 4. View Reports
-After the Airflow DAG completes, the analytic report is generated in the scheduler container.
-
-Copy the report to your local machine:
+**Check DAG run status**:
 ```bash
-docker cp big-data-mini-project_airflow-scheduler_1:/tmp/analytic_report.csv .
+docker exec big-data-mini-project-airflow-scheduler-1 airflow dags list-runs -d daily_user_segmentation -o table
 ```
 
-View the content:
+#### 5. View Reports and Results
+
+**Copy the analytic report to your local machine**:
+```bash
+docker cp big-data-mini-project-airflow-scheduler-1:/tmp/analytic_report.csv .
+```
+
+**View the report**:
 ```bash
 cat analytic_report.csv
 ```
 
+**Verify user segmentation results**:
+```bash
+docker exec big-data-mini-project-postgres-1 psql -U airflow -d airflow -c \
+  "SELECT segment, COUNT(*) as count FROM user_segments GROUP BY segment;"
+```
+
+**View top 5 products**:
+```bash
+docker exec big-data-mini-project-postgres-1 psql -U airflow -d airflow -c \
+  "SELECT * FROM top_products ORDER BY total_views DESC LIMIT 5;"
+```
+
 ## 🛠 Troubleshooting
 
+-   **Producer image build fails**: Ensure the `docker-compose.yml` uses `build` context instead of trying to pull `local/producer` image.
+-   **Spark job fails to start**: Create the `/home/spark/.ivy2/cache` directory with proper permissions (see Step 2 above).
+-   **Spark can't download packages**: Ensure the Ivy cache directory exists and has write permissions for the `spark` user.
+-   **Airflow DAG fails with connection error**: Create the `postgres_default` connection using the command in Step 3.
+-   **activity_logs table doesn't exist**: The Spark streaming job must be running to create and populate this table. Check Spark job logs.
 -   **Spark fails to connect to Kafka**: Ensure the Spark job is using the internal Docker network address for Kafka (`kafka:29092`), not localhost.
--   **Postgres tables missing**: The tables are created automatically by the Spark job (`activity_logs`) and Airflow (`user_segments`, `top_products`). Ensure the Spark job has processed at least one batch.
--   **Airflow DAG fails**: Check the Airflow scheduler logs. Ensure the connection `postgres_default` is configured (it is set up automatically in this project's instructions, but can be added via CLI if missing).
 
 ## 📂 Project Structure
 

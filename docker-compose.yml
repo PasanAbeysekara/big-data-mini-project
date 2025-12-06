@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   # ---------------------------
   # KAFKA & ZOOKEEPER
@@ -107,7 +105,9 @@ services:
   # PRODUCER
   # ---------------------------
   producer:
-    image: local/producer
+    build:
+      context: ./producers
+      dockerfile: Dockerfile
     depends_on:
       - kafka
     environment:
