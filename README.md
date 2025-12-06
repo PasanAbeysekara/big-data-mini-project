@@ -56,6 +56,8 @@ The producer starts automatically. Check its logs to see data being generated:
 ```bash
 docker logs big-data-mini-project-producer-1 --tail 10
 ```
+
+![alt text](image.png)
 *You should see logs like `Sent: {'user_id': '...', 'event_type': 'view', ...}`.*
 
 #### 2. Submit and Verify Spark Stream Processing
@@ -114,17 +116,31 @@ docker exec big-data-mini-project-airflow-scheduler-1 airflow connections get po
 -   **Username**: `admin`
 -   **Password**: `admin`
 
+![alt text](image-1.png)
+
+![alt text](image-6.png)
+
 **Trigger the DAG from the UI** by clicking the "Trigger DAG" button on the `daily_user_segmentation` DAG.
+
+![alt text](image-2.png)
 
 **Or trigger via CLI**:
 ```bash
 docker exec big-data-mini-project-airflow-scheduler-1 airflow dags trigger daily_user_segmentation
 ```
+![alt text](image-3.png)
 
-**Check DAG run status**:
+**Check DAG run status from the UI**:
+
+![alt text](image-4.png)
+
+**Check DAG run status via CLI**:
 ```bash
 docker exec big-data-mini-project-airflow-scheduler-1 airflow dags list-runs -d daily_user_segmentation -o table
 ```
+
+![alt text](image-5.png)
+
 
 #### 5. View Reports and Results
 
