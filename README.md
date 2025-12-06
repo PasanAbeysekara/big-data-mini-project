@@ -48,6 +48,11 @@ The pipeline consists of the following components:
     ```bash
     docker-compose up -d --build
     ```
+    ![alt text](img/image-8.png)
+
+    At http://localhost:8080
+
+    ![alt text](img/image-14.png)
 
 ### 🏃‍♂️ Running the Pipeline
 
@@ -57,8 +62,9 @@ The producer starts automatically. Check its logs to see data being generated:
 docker logs big-data-mini-project-producer-1 --tail 10
 ```
 
-![alt text](image.png)
 *You should see logs like `Sent: {'user_id': '...', 'event_type': 'view', ...}`.*
+![alt text](img/image-7.png)
+
 
 #### 2. Submit and Verify Spark Stream Processing
 
@@ -85,12 +91,22 @@ docker exec big-data-mini-project-spark-master-1 ps aux | grep spark-submit
 docker exec big-data-mini-project-spark-master-1 tail -30 /opt/spark/work-dir/spark_job.log
 ```
 
+![alt text](img/image-9.png)
+
+![alt text](img/image-15.png)
+
 **Verify data is being written to PostgreSQL**:
 ```bash
 docker exec big-data-mini-project-postgres-1 psql -U airflow -d airflow -c "SELECT count(*) FROM activity_logs;"
+```
+![alt text](img/image-16.png)
 
+```bash
 docker exec big-data-mini-project-postgres-1 psql -U airflow -d airflow -c "SELECT * FROM activity_logs LIMIT 5;"
 ```
+![alt text](img/image-11.png)
+
+
 
 #### 3. Configure Airflow PostgreSQL Connection
 
@@ -105,10 +121,14 @@ docker exec big-data-mini-project-airflow-scheduler-1 airflow connections add po
   --conn-port 5432
 ```
 
+![alt text](img/image-12.png)
+
 **Verify the connection**:
 ```bash
 docker exec big-data-mini-project-airflow-scheduler-1 airflow connections get postgres_default
 ```
+
+![alt text](img/image-13.png)
 
 #### 4. Trigger Airflow DAG
 
@@ -116,31 +136,50 @@ docker exec big-data-mini-project-airflow-scheduler-1 airflow connections get po
 -   **Username**: `admin`
 -   **Password**: `admin`
 
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 
-![alt text](image-6.png)
+![alt text](img/image-6.png)
 
 **Trigger the DAG from the UI** by clicking the "Trigger DAG" button on the `daily_user_segmentation` DAG.
 
-![alt text](image-2.png)
+![alt text](img/image-2.png)
+
+![alt text](img/image-17.png)
 
 **Or trigger via CLI**:
 ```bash
 docker exec big-data-mini-project-airflow-scheduler-1 airflow dags trigger daily_user_segmentation
 ```
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
 **Check DAG run status from the UI**:
 
-![alt text](image-4.png)
+![alt text](img/image-4.png)
+
+![alt text](img/image-19.png)
+
+![alt text](img/image-18.png)
+
+![alt text](img/image-20.png)
+
+![alt text](img/image-21.png)
+
+![alt text](img/image-22.png)
+
+![alt text](img/image-23.png)
+
+![alt text](img/image-24.png)
+
+![alt text](img/image-25.png)
+
+![alt text](img/image-26.png)
 
 **Check DAG run status via CLI**:
 ```bash
 docker exec big-data-mini-project-airflow-scheduler-1 airflow dags list-runs -d daily_user_segmentation -o table
 ```
 
-![alt text](image-5.png)
-
+![alt text](img/image-5.png)
 
 #### 5. View Reports and Results
 
@@ -154,17 +193,21 @@ docker cp big-data-mini-project-airflow-scheduler-1:/tmp/analytic_report.csv .
 cat analytic_report.csv
 ```
 
+![alt text](img/image-27.png)
+
 **Verify user segmentation results**:
 ```bash
 docker exec big-data-mini-project-postgres-1 psql -U airflow -d airflow -c \
   "SELECT segment, COUNT(*) as count FROM user_segments GROUP BY segment;"
 ```
+![alt text](img/image-28.png)
 
 **View top 5 products**:
 ```bash
 docker exec big-data-mini-project-postgres-1 psql -U airflow -d airflow -c \
   "SELECT * FROM top_products ORDER BY total_views DESC LIMIT 5;"
 ```
+![alt text](img/image-29.png)
 
 ## 🛠 Troubleshooting
 
