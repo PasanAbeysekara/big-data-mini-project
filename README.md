@@ -4,16 +4,7 @@ An end-to-end Big Data pipeline implementing a **Kappa Architecture** to process
 
 ## 🎬 Quick Overview
 
-```
-┌─────────────┐      ┌──────┐      ┌───────────┐      ┌──────────────┐      ┌──────────┐
-│  100 Users  │ ───▶ │ Kafka│ ───▶ │   Spark   │ ───▶ │  PostgreSQL  │ ◀─── │ Airflow  │
-│ 20 Products │      │Stream│      │ Streaming │      │   Database   │      │Daily ETL │
-│ 3 Events    │      └──────┘      │           │      │              │      └──────────┘
-│ 2 evt/sec   │                    │• Aggregate│      │• Raw Events  │      │• Segment │
-└─────────────┘                    │• Alert    │      │• Statistics  │      │• Analyze │
-                                   │• Real-time│      │• Alerts      │      │• Report  │
-                                   └───────────┘      └──────────────┘      └──────────┘
-```
+![alt text](img/diagrams/image.png)
 
 **Pipeline**: Producer → Kafka → Spark Streaming → PostgreSQL ← Airflow  
 **Processing**: Real-time stream analytics + Daily batch reporting  
@@ -30,7 +21,6 @@ An end-to-end Big Data pipeline implementing a **Kappa Architecture** to process
 - [Data Flow Diagram](#-data-flow-diagram)
 - [Spark Streaming Processing Logic](#-spark-streaming-processing-logic)
 - [Airflow DAG Structure](#-airflow-dag-structure)
-- [Data Transformation Pipeline](#-data-transformation-pipeline)
 - [Database Schema](#️-database-schema)
 - [Technology Stack](#️-technology-stack)
 - [Architecture Components](#-architecture-components)
@@ -129,11 +119,11 @@ Events: ●●●●●       ●●●●        ●●●●●       ●●�
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌──────────────┐         ┌──────────────┐         ┌─────────────────────────┐
-│   Producer   │────────▶│    Kafka     │────────▶│   Spark Streaming      │
-│   (Python)   │  JSON   │  Message     │  Stream │   - Parse Events       │
-│              │  Events │   Broker     │  Read   │   - Aggregate Windows  │
-│ - 100 Users  │         │              │         │   - Alert Detection    │
-│ - 20 Products│         │ Topic:       │         │   - Real-time Process  │
+│   Producer   │────────▶│    Kafka     │───────▶│   Spark Streaming       │
+│   (Python)   │  JSON   │  Message     │  Stream │   - Parse Events        │
+│              │  Events │   Broker     │  Read   │   - Aggregate Windows   │
+│ - 100 Users  │         │              │         │   - Alert Detection     │
+│ - 20 Products│         │ Topic:       │         │   - Real-time Process   │
 │ - 3 Events   │         │ clickstream  │         │                         │
 └──────────────┘         └──────────────┘         └─────────────────────────┘
                                 │                            │
@@ -151,8 +141,8 @@ Events: ●●●●●       ●●●●        ●●●●●       ●●�
                                 │                            ▲
                                 │                            │
                                 ▼                            │
-                     ┌─────────────────────┐                │
-                     │   Airflow (DAG)     │────────────────┘
+                     ┌─────────────────────┐                 │
+                     │   Airflow (DAG)     │─────────────────┘
                      │                     │   Daily ETL
                      │  Orchestration:     │
                      │  • User Segment     │
@@ -173,27 +163,27 @@ Event Generation          Message Queue           Stream Processing          Sto
                                                              
 ┌──────────┐            ┌──────────┐             ┌─────────────────┐     
 │ Generate │            │  Publish │             │  Read Stream    │     ┌─────────────┐
-│  Events  │───────────▶│   to     │────────────▶│  from Kafka     │     │   Raw Data  │
+│  Events  │───────────▶│   to     │───────────▶│  from Kafka     │     │   Raw Data  │
 │          │  {JSON}    │  Topic   │   Consume   │                 │────▶│ activity_   │
 └──────────┘            └──────────┘             │  Parse JSON     │     │   logs      │
-                                                  │                 │     └─────────────┘
+                                                 │                 │     └─────────────┘
   Events:                 Buffering              │  Apply Schema   │     
   • view                  & Delivery             │                 │     
   • add_to_cart           Guarantee              │  Watermarking   │     ┌─────────────┐
   • purchase                                     │                 │     │ Aggregated  │
-                                                  │  Window Aggr.   │────▶│  product_   │
+                                                 │  Window Aggr.   │────▶│  product_   │
   Rate: 2 events/sec                             │  (10 min / 5m)  │     │   stats     │
-                                                  │                 │     └─────────────┘
-                                                  │  Alert Logic    │     
-                                                  │  (views>100 &   │     ┌─────────────┐
-                                                  │   purchases<5)  │────▶│   alerts    │
-                                                  └─────────────────┘     └─────────────┘
-                                                           │
-                                                           │
-                                                  ┌────────▼────────┐
-                                                  │  Console Output │
-                                                  │  (Monitoring)   │
-                                                  └─────────────────┘
+                                                 │                 │     └─────────────┘
+                                                 │  Alert Logic    │     
+                                                 │  (views>100 &   │     ┌─────────────┐
+                                                 │   purchases<5)  │────▶│   alerts    │
+                                                 └─────────────────┘     └─────────────┘
+                                                          │
+                                                          │
+                                                 ┌────────▼────────┐
+                                                 │  Console Output │
+                                                 │  (Monitoring)   │
+                                                 └─────────────────┘
 ```
 
 ## 🎯 Spark Streaming Processing Logic
@@ -220,7 +210,7 @@ Event Generation          Message Queue           Stream Processing          Sto
     │             │      │  (1 min delay)   │     │                │
     │  ▼          │      │      ▼           │     │  ▼             │
     │ Append Mode │      │  Group By:       │     │  Window:       │
-    │  to          │      │  - window()      │     │  10 minutes    │
+    │  to         │      │  - window()      │     │  10 minutes    │
     │ activity_   │      │  - product_id    │     │  Slide: 5 min  │
     │  logs       │      │                  │     │                │
     └─────────────┘      │  Aggregate:      │     │  ▼             │
@@ -264,8 +254,8 @@ Event Generation          Message Queue           Stream Processing          Sto
 │ segmentation_    │    │ products_table    │     │                    │
 │ table            │    │                   │     │                    │
 └────────┬─────────┘    └─────────┬─────────┘     │                    │
-         │                        │                │                    │
-         ▼                        ▼                │                    │
+         │                        │               │                    │
+         ▼                        ▼               │                    │
 ┌──────────────────┐    ┌───────────────────┐     │                    │
 │ segment_users    │    │ top_products      │     │                    │
 │                  │    │                   │     │  PostgreSQL Ops    │
@@ -275,102 +265,25 @@ Event Generation          Message Queue           Stream Processing          Sto
 │ - Window         │    │ - GROUP BY        │     │  logs table        │
 │   Shoppers:      │    │   product_id      │     │                    │
 │   views only     │    │                   │     │                    │
-└────────┬─────────┘    └─────────┬─────────┘     │                    │
-         │                        │                │                    │
-         └────────────┬───────────┘                │                    │
-                      │                            │                    │
-                      ▼                            │                    │
-            ┌───────────────────┐                  │                    │
-            │ generate_report   │                  │                    │
-            │                   │◀─────────────────┘                    │
-            │ Python Task:      │                                       │
-            │ - Calculate       │                                       │
-            │   conversion rate │                                       │
-            │ - Generate CSV    │                                       │
-            │ - Export to /tmp  │                                       │
-            └───────────────────┘                                       │
-                      │                                                 │
-                      ▼                                                 │
-              analytic_report.csv                                       │
-              ───────────────────                                       │
-              product_id | purchases | views | conversion_rate         │
-```
-
-## 🔀 Data Transformation Pipeline
-
-```
-Stage 1: Event Generation          Stage 2: Stream Processing           Stage 3: Storage
-──────────────────────             ──────────────────────────           ────────────────
-
-Raw Event (JSON)                   Parsed & Validated                   Normalized Tables
-────────────────                   ──────────────────                   ─────────────────
-{                                  DataFrame Schema:                    
-  "user_id": "user_42",            ┌──────────────┐                    Table: activity_logs
-  "product_id": "prod_8",          │ user_id      │ String            ┌─────────────────┐
-  "event_type": "view",            │ product_id   │ String            │ Immutable log   │
-  "timestamp": "2025-12-06..."     │ event_type   │ String            │ All events      │
-}                                  │ timestamp    │ Timestamp         │ Fast inserts    │
-                                   └──────────────┘                    └─────────────────┘
-        │                                   │
-        │                                   ├─────────────┐
-        │                                   │             │
-        ▼                                   ▼             ▼
-                                   Window Aggregation   Alert Detection
-                                   ──────────────────   ───────────────
-                                   GroupBy:              Filter:
-                                   • 10-min window       • views > 100
-                                   • product_id          • purchases < 5
-                                   
-                                   Metrics:              Output:
-                                   • total_views         • Flash sale alert
-                                   • total_purchases     • Timestamp
-                                                         • Product ID
-        │                                   │             │
-        │                                   │             │
-        ▼                                   ▼             ▼
-                                   Table: product_stats Table: alerts
-                                   ┌─────────────────┐  ┌─────────────────┐
-                                   │ Aggregated data │  │ Business alerts │
-                                   │ Window updates  │  │ Action triggers │
-                                   │ Analytics ready │  │ Marketing ops   │
-                                   └─────────────────┘  └─────────────────┘
-
-
-Stage 4: Batch Processing (Airflow)          Stage 5: Business Intelligence
-────────────────────────────────────          ──────────────────────────────
-
-SQL Transformations                           Deliverables
-───────────────────                           ────────────
-
-Query 1: User Segmentation                    CSV Report:
-────────────────────────                      ───────────────────────────────
-SELECT user_id,                               product_id | purchases | views | conv_rate
-  CASE                                        ───────────────────────────────
-    WHEN purchases > 0 → 'Buyer'              prod_8     | 42        | 350   | 12.0%
-    ELSE → 'Window Shopper'                   prod_15    | 38        | 290   | 13.1%
-  END                                         prod_3     | 25        | 410   | 6.1%
-FROM activity_logs                            ...
-   ↓
-Table: user_segments                          Dashboard Insights:
-┌─────────────────────┐                       ────────────────────
-│ Behavioral cohorts  │                       ✓ Top Products
-│ Marketing targets   │                       ✓ Conversion Rates
-└─────────────────────┘                       ✓ User Segments
-                                              ✓ Revenue Optimization
-
-Query 2: Top Products
-─────────────────────
-SELECT product_id, COUNT(*) views
-FROM activity_logs
-WHERE event_type = 'view'
-GROUP BY product_id
-ORDER BY views DESC LIMIT 5
-   ↓
-Table: top_products
-┌─────────────────────┐
-│ Trending products   │
-│ Daily snapshot      │
-└─────────────────────┘
+└────────┬─────────┘    └─────────┬─────────┘     └────────────────────┘
+         │                        │                          │                    
+         └────────────┬───────────┘                          │                    
+                      │                                      │                    
+                      ▼                                      │                    
+            ┌───────────────────┐                            │                    
+            │ generate_report   │                            │                    
+            │                   │◀──────────────────────────┘                     
+            │ Python Task:      │                                       
+            │ - Calculate       │                                       
+            │   conversion rate │                                       
+            │ - Generate CSV    │                                       
+            │ - Export to /tmp  │                                       
+            └───────────────────┘                                       
+                      │                                                 
+                      ▼                                                 
+              analytic_report.csv                                       
+              ───────────────────                                       
+              product_id | purchases | views | conversion_rate         
 ```
 
 ## 🗄️ Database Schema
