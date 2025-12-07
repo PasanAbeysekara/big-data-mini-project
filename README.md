@@ -291,51 +291,51 @@ Event Generation          Message Queue           Stream Processing          Sto
 ```sql
 -- Real-time Stream Data
 ┌─────────────────────────────────┐
-│       activity_logs              │
+│       activity_logs             │
 ├─────────────────────────────────┤
-│ user_id      VARCHAR(50)         │
-│ product_id   VARCHAR(50)         │
-│ event_type   VARCHAR(20)         │
-│ timestamp    TIMESTAMP           │
+│ user_id      VARCHAR(50)        │
+│ product_id   VARCHAR(50)        │
+│ event_type   VARCHAR(20)        │
+│ timestamp    TIMESTAMP          │
 └─────────────────────────────────┘
 
 -- Real-time Aggregations
 ┌─────────────────────────────────┐
-│       product_stats              │
+│       product_stats             │
 ├─────────────────────────────────┤
-│ window       STRUCT              │
-│ product_id   VARCHAR(50)         │
-│ total_views  BIGINT              │
-│ total_purchases BIGINT           │
+│ window       STRUCT             │
+│ product_id   VARCHAR(50)        │
+│ total_views  BIGINT             │
+│ total_purchases BIGINT          │
 └─────────────────────────────────┘
 
 -- Alert Management
 ┌─────────────────────────────────┐
-│         alerts                   │
+│         alerts                  │
 ├─────────────────────────────────┤
-│ window         STRUCT            │
-│ product_id     VARCHAR(50)       │
-│ total_views    BIGINT            │
-│ total_purchases BIGINT           │
-│ alert_message  VARCHAR(255)      │
-│ alert_time     TIMESTAMP         │
+│ window         STRUCT           │
+│ product_id     VARCHAR(50)      │
+│ total_views    BIGINT           │
+│ total_purchases BIGINT          │
+│ alert_message  VARCHAR(255)     │
+│ alert_time     TIMESTAMP        │
 └─────────────────────────────────┘
 
 -- Daily Batch Processing
 ┌─────────────────────────────────┐
-│       user_segments              │
+│       user_segments             │
 ├─────────────────────────────────┤
-│ user_id      VARCHAR(50)         │
-│ segment      VARCHAR(20)         │
-│ date         DATE                │
+│ user_id      VARCHAR(50)        │
+│ segment      VARCHAR(20)        │
+│ date         DATE               │
 └─────────────────────────────────┘
 
 ┌─────────────────────────────────┐
-│       top_products               │
+│       top_products              │
 ├─────────────────────────────────┤
-│ product_id   VARCHAR(50)         │
-│ total_views  BIGINT              │
-│ date         DATE                │
+│ product_id   VARCHAR(50)        │
+│ total_views  BIGINT             │
+│ date         DATE               │
 └─────────────────────────────────┘
 ```
 
