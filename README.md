@@ -42,7 +42,7 @@ This project implements a **Kappa Architecture** where streaming is the primary 
 
 ```
                     ┌─────────────────────────────────────┐
-                    │       KAPPA ARCHITECTURE             │
+                    │         KAPPA ARCHITECTURE          │
                     └─────────────────────────────────────┘
                                                             
     All Data Flows Through a Single Stream Processing Path
@@ -53,7 +53,7 @@ This project implements a **Kappa Architecture** where streaming is the primary 
          │                                              
          │                                              
     ┌────▼────┐         ┌──────────┐           ┌──────────────┐
-    │ Kafka   │────────▶│  Spark   │──────────▶│  PostgreSQL  │
+    │ Kafka   │───────▶│  Spark   │──────────▶│  PostgreSQL  │
     │ Stream  │         │ Streaming│           │   (OLAP)     │
     └─────────┘         └──────────┘           └──────────────┘
          │                    │                        │
@@ -115,7 +115,7 @@ Events: ●●●●●       ●●●●        ●●●●●       ●●�
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        E-COMMERCE CLICKSTREAM PIPELINE                       │
+│                        E-COMMERCE CLICKSTREAM PIPELINE                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌──────────────┐         ┌──────────────┐         ┌─────────────────────────┐
@@ -190,7 +190,7 @@ Event Generation          Message Queue           Stream Processing          Sto
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│                    SPARK STRUCTURED STREAMING                         │
+│                    SPARK STRUCTURED STREAMING                        │
 └──────────────────────────────────────────────────────────────────────┘
 
     Kafka Stream Input
@@ -240,8 +240,8 @@ Event Generation          Message Queue           Stream Processing          Sto
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│              DAILY USER SEGMENTATION DAG                             │
-│              Schedule: @daily                                        │
+│              DAILY USER SEGMENTATION DAG                            │
+│              Schedule: @daily                                       │
 └─────────────────────────────────────────────────────────────────────┘
 
     Start
