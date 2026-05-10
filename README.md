@@ -2,7 +2,7 @@
 
 An end-to-end Big Data pipeline implementing a **Kappa Architecture** to process real-time e-commerce user events. The system ingests clickstream data, performs real-time aggregation for alerts, and orchestrates daily reporting.
 
-## 🎬 Quick Overview
+## Quick Overview
 
 ![alt text](img/diagrams/image.png)
 
@@ -12,7 +12,7 @@ An end-to-end Big Data pipeline implementing a **Kappa Architecture** to process
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Quick Overview](#-quick-overview)
 - [Kappa Architecture Pattern](#-kappa-architecture-pattern)
@@ -36,7 +36,7 @@ An end-to-end Big Data pipeline implementing a **Kappa Architecture** to process
 - [Future Enhancements](#-future-enhancements)
 - [Learning Outcomes](#-learning-outcomes)
 
-## 🎯 Kappa Architecture Pattern
+## Kappa Architecture Pattern
 
 This project implements a **Kappa Architecture** where streaming is the primary processing paradigm:
 
@@ -53,7 +53,7 @@ This project implements a **Kappa Architecture** where streaming is the primary 
          │                                              
          │                                              
     ┌────▼────┐         ┌──────────┐           ┌──────────────┐
-    │ Kafka   │───────▶│  Spark   │──────────▶│  PostgreSQL  │
+    │ Kafka   │────────▶│  Spark   │──────────▶│  PostgreSQL  │
     │ Stream  │         │ Streaming│           │   (OLAP)     │
     └─────────┘         └──────────┘           └──────────────┘
          │                    │                        │
@@ -70,7 +70,7 @@ This project implements a **Kappa Architecture** where streaming is the primary 
     ✓ No separate batch processing layer needed            
 ```
 
-## ⏱️ Event Processing Timeline
+## Event Processing Timeline
 
 ```
 Time →  0s          5s          10s         15s         20s
@@ -111,7 +111,7 @@ Events: ●●●●●       ●●●●        ●●●●●       ●●�
     user_segments  top_products    CSV Export
 ```
 
-## 📊 System Architecture
+## System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -119,7 +119,7 @@ Events: ●●●●●       ●●●●        ●●●●●       ●●�
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ┌──────────────┐         ┌──────────────┐         ┌─────────────────────────┐
-│   Producer   │────────▶│    Kafka     │───────▶│   Spark Streaming       │
+│   Producer   │────────▶│    Kafka     │────────▶│   Spark Streaming       │
 │   (Python)   │  JSON   │  Message     │  Stream │   - Parse Events        │
 │              │  Events │   Broker     │  Read   │   - Aggregate Windows   │
 │ - 100 Users  │         │              │         │   - Alert Detection     │
@@ -151,7 +151,7 @@ Events: ●●●●●       ●●●●        ●●●●●       ●●�
                      └─────────────────────┘
 ```
 
-## 🔄 Data Flow Diagram
+## Data Flow Diagram
 
 ```
 Event Generation          Message Queue           Stream Processing          Storage
@@ -163,7 +163,7 @@ Event Generation          Message Queue           Stream Processing          Sto
                                                              
 ┌──────────┐            ┌──────────┐             ┌─────────────────┐     
 │ Generate │            │  Publish │             │  Read Stream    │     ┌─────────────┐
-│  Events  │───────────▶│   to     │───────────▶│  from Kafka     │     │   Raw Data  │
+│  Events  │───────────▶│   to     │────────────▶│  from Kafka     │     │   Raw Data  │
 │          │  {JSON}    │  Topic   │   Consume   │                 │────▶│ activity_   │
 └──────────┘            └──────────┘             │  Parse JSON     │     │   logs      │
                                                  │                 │     └─────────────┘
@@ -186,7 +186,7 @@ Event Generation          Message Queue           Stream Processing          Sto
                                                  └─────────────────┘
 ```
 
-## 🎯 Spark Streaming Processing Logic
+## Spark Streaming Processing Logic
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -208,12 +208,12 @@ Event Generation          Message Queue           Stream Processing          Sto
     │ Raw Stream  │      │  Watermarked     │     │  Window        │
     │  writeStream│      │  Stream          │     │  Aggregation   │
     │             │      │  (1 min delay)   │     │                │
-    │  ▼          │      │      ▼           │     │  ▼             │
+    │     ▼       │      │       ▼          │     │     ▼          │
     │ Append Mode │      │  Group By:       │     │  Window:       │
     │  to         │      │  - window()      │     │  10 minutes    │
     │ activity_   │      │  - product_id    │     │  Slide: 5 min  │
     │  logs       │      │                  │     │                │
-    └─────────────┘      │  Aggregate:      │     │  ▼             │
+    └─────────────┘      │  Aggregate:      │     │     ▼          │
                          │  - SUM(views)    │     │  Update Mode   │
                          │  - SUM(purchases)│     │                │
                          └──────────────────┘     └────────────────┘
@@ -225,18 +225,18 @@ Event Generation          Message Queue           Stream Processing          Sto
                          │  IF views > 100  │    └────────────────┘
                          │  AND purchases<5 │
                          │                  │
-                         │  ▼               │
+                         │       ▼          │
                          │  Generate Alert  │
                          │  "Flash Sale     │
                          │   Recommended"   │
                          │                  │
-                         │  ▼               │
+                         │       ▼          │
                          │  Write to        │
                          │  alerts table    │
                          └──────────────────┘
 ```
 
-## 📅 Airflow DAG Structure
+## Airflow DAG Structure
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -272,7 +272,7 @@ Event Generation          Message Queue           Stream Processing          Sto
                       ▼                                      │                    
             ┌───────────────────┐                            │                    
             │ generate_report   │                            │                    
-            │                   │◀──────────────────────────┘                     
+            │                   │◀───────────────────────────┘                     
             │ Python Task:      │                                       
             │ - Calculate       │                                       
             │   conversion rate │                                       
@@ -286,7 +286,7 @@ Event Generation          Message Queue           Stream Processing          Sto
               product_id | purchases | views | conversion_rate         
 ```
 
-## 🗄️ Database Schema
+## Database Schema
 
 ```sql
 -- Real-time Stream Data
@@ -339,7 +339,7 @@ Event Generation          Message Queue           Stream Processing          Sto
 └─────────────────────────────────┘
 ```
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
@@ -414,7 +414,7 @@ Event Generation          Message Queue           Stream Processing          Sto
      - DAG visualization and monitoring
      - Task logs and execution history
 
-## 💡 Key Features
+## Key Features
 
 - **Lambda Architecture**: Combines real-time streaming (hot path) with batch processing (cold path)
 - **Fault Tolerance**: Kafka message persistence, Spark checkpointing
@@ -423,7 +423,7 @@ Event Generation          Message Queue           Stream Processing          Sto
 - **Alert System**: Real-time business intelligence for flash sale opportunities
 - **Monitoring**: Airflow UI for job tracking, Spark UI for stream monitoring
 
-## 🔍 How It Works: End-to-End Flow
+## How It Works: End-to-End Flow
 
 ### Real-Time Stream Processing (Hot Path)
 1. **Producer** generates user events (view, add_to_cart, purchase) with timestamps
@@ -452,7 +452,7 @@ Event Generation          Message Queue           Stream Processing          Sto
    - `top_products`: Trending products snapshot
    - `/tmp/analytic_report.csv`: Business intelligence report
 
-## 📈 Use Cases
+## Use Cases
 
 ### 1. Real-Time Marketing (Hot Path)
 **Scenario**: A product receives 150 views but only 3 purchases in a 10-minute window
@@ -486,7 +486,7 @@ Event Generation          Message Queue           Stream Processing          Sto
 - Historical trend analysis from PostgreSQL
 - Product-level conversion funnel insights
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 -   Docker
@@ -511,7 +511,7 @@ Event Generation          Message Queue           Stream Processing          Sto
 
     ![alt text](img/image-14.png)
 
-### 🏃‍♂️ Running the Pipeline
+### Running the Pipeline
 
 #### 1. Verify Data Ingestion
 The producer starts automatically. Check its logs to see data being generated:
@@ -666,7 +666,7 @@ docker exec big-data-mini-project-postgres-1 psql -U airflow -d airflow -c \
 ```
 ![alt text](img/image-29.png)
 
-## 📊 Monitoring & Metrics
+## Monitoring & Metrics
 
 ### System Health Checks
 
@@ -794,7 +794,7 @@ big-data-mini-project/
 └── README.md                          # Comprehensive documentation
 ```
 
-## 🏛️ Architecture Decisions
+## Architecture Decisions
 
 ### Why Kappa over Lambda Architecture?
 - **Simplified Codebase**: Single stream processing path reduces maintenance
@@ -817,7 +817,7 @@ big-data-mini-project/
 - **1-minute watermark**: Accommodates network delays and clock skew
 - **Update mode**: Efficiently handles late-arriving events
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 ### Scalability Improvements
 - [ ] **Kafka Partitioning**: Partition topic by `product_id` for parallel processing
@@ -847,14 +847,3 @@ big-data-mini-project/
 - [ ] **Data Quality Checks**: Great Expectations for automated validation
 - [ ] **Duplicate Detection**: Deduplication based on event IDs
 - [ ] **Anomaly Detection**: Statistical outlier identification
-
-## 🎓 Learning Outcomes
-
-This project demonstrates:
-- ✅ **Stream Processing**: Real-time data pipelines with Spark Structured Streaming
-- ✅ **Event-Driven Architecture**: Decoupled services communicating via Kafka
-- ✅ **Workflow Orchestration**: DAG-based scheduling with Airflow
-- ✅ **Data Engineering**: ETL patterns, aggregations, and transformations
-- ✅ **DevOps**: Containerization and multi-service orchestration
-- ✅ **Big Data Concepts**: Watermarking, windowing, late data handling
-- ✅ **Analytics**: User segmentation, conversion funnels, business intelligence
